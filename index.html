@@ -84,10 +84,63 @@
           );
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+       /* ZOHO SITES OVERRIDE - Force full width */
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      /* Override ALL Zoho wrapper containers */
+      body > *,
+      body > div,
+      .zw-container,
+      .zw-wrapper,
+      .page-wrapper,
+      .main-wrapper,
+      #content,
+      #main,
+      .content-wrapper,
+      [class*="wrapper"],
+      [class*="container"]:not(.container):not(.container-fluid) {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Target Zoho's main content area */
+      #zs-main-content,
+      .zs-main-content,
+      .zsMainContent,
+      .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Force all sections to full width */
+      section,
+      header,
+      footer,
+      .hero,
+      .section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Your header should be at the top */
+      header {
+        margin-top: 0px !important;
+        position: relative;
+        top: 0;
       }
 
       html {
@@ -148,14 +201,14 @@
 
       .nav-menu {
         display: flex;
-        gap: 50px;
+        
         list-style: none;
         align-items: center;
       }
-.logo-container {
+      .logo-container {
         display: flex;
         align-items: center;
-        gap: 30px;
+        
       }
       .navbar {
         background: rgba(255, 255, 255, 0.85) !important;
@@ -190,41 +243,9 @@
         filter: brightness(1.2);
       }
 
-      .nav-link {
-        font-weight: 500;
-        color: var(--dark) !important;
-        margin: 0 1rem;
-        position: relative;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: var(--gradient-secondary);
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        transform: translateX(-50%);
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .nav-link:hover {
-        color: var(--primary) !important;
-        transform: translateY(-2px);
-      }
 
       /* Advanced Hero Section with Parallax */
       .hero {
-         margin-top: 120px; /* adjust based on navbar height */
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -1124,8 +1145,8 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="logo-container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="logo-container d-flex justify-content-center align-items-center gap-4">
         <a href="index.html" class="home-logo">
     <img
       src="https://www.zolytics.in/files/logo.png"
@@ -1134,9 +1155,6 @@
       style="height: 90px;"
     />
   </a>
-</div>
-
-        <div class="logo-item">
           <img
             src="https://www.zoho.com/sites/zweb/images/productlogos/procurement.svg"
             alt="Zoho Procurement"
